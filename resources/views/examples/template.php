@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-	<meta charset="utf-8" />
-	<title>Práctica Laravel 5</title>
-</head>
-<body>
+<?php include(__DIR__ . '/header.php') ?>
 	<h1>Práctica de Laravel 5</h1>
 	<p>
-		Bienvenido <?= $user ?>
+		<?php if(isset($user)): ?>
+			Bienvenido <?= $user ?>
+		<?php else: ?>
+			[Login]
+		<?php endif; ?>
 	</p>
-</body>
-</html>
+<?php include(__DIR__ . '/footer.php') ?>
