@@ -16,6 +16,15 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
+	'users' => 'UsersController',
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('example', function(){
+
+
+	$user = 'Juliette';
+
+	return view('examples.template', compact('user'));
+});
