@@ -21,10 +21,7 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('example', function(){
-
-
-	$user = 'Juliette';
-
-	return view('examples.template', compact('user'));
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+	Route::resource('users', 'UsersController');
 });
+
