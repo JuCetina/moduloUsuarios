@@ -29,7 +29,7 @@
   							</tr>
   						@endforeach
 					</table>
-					{!! $users->render() !!}
+					{!! $users->setPath('')->render() !!}
 					<p>Página {{ $users->currentPage() }} de {{ $users->lastPage() }}</p>
 				</div>
 			</div>
