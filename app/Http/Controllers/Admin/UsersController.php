@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 
+
+
 class UsersController extends Controller {
 
 	/**
@@ -27,7 +29,7 @@ class UsersController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('admin.users.create');
 	}
 
 	/**
@@ -35,9 +37,12 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		$user = new User($request->all());
+		$user->save();
+
+		return \Redirect::route('admin.users.index');
 	}
 
 	/**

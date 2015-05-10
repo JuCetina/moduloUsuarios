@@ -7,6 +7,9 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Usuarios</div>
 				<div class="panel-body">
+					<p>
+						<a class="btn btn-info" href="{{ route('admin.users.create') }}" role="button">Crear Usuario</a>
+					</p>
 					<p>{{ $users->total() }} registros encontrados / {{ $users->perPage() }} registros por página</p>
 					<table class="table table-striped">
   						<tr>
@@ -23,8 +26,8 @@
   								<td>{{ $user->email }}</td>
   								<td>{{ $user->type }}</td>
   								<td>
-  									<a href="">Editar</a>
-  									<a href="">Eliminar</a>
+  									<a class="btn btn-warning" href="#" role="button">Editar</a>
+  									<a class="btn btn-danger" href="#" role="button">Eliminar</a>
   								</td>
   							</tr>
   						@endforeach
