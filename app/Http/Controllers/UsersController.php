@@ -8,6 +8,7 @@ class UsersController extends Controller
 	public function getOrm()
 	{
 		//$users = User::get(); //Guarda en $users una coleccion con todos los registros de la tabla users
+		
 
 		//Combinacion de ORM con Fluent
 		$users = User::select('id','first_name')
@@ -22,6 +23,7 @@ class UsersController extends Controller
 		//dd($user->profile); //Trae los datos del perfil del usuario
 		//dd($user->profile->age); //Trae la edad registrada en el perfil de usuario
 		//dd($users); //Muestra la coleccion
+		
 		dd($users->toArray()); //Muestra la coleccion convertida en array
 	}
 
