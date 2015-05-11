@@ -39,8 +39,7 @@ class UsersController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		$user = new User($request->all());
-		$user->save();
+		$user = User::create($request->all());
 
 		return \Redirect::route('admin.users.index');
 	}
@@ -64,7 +63,8 @@ class UsersController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = User::findOrFail($id);
+		return view('admin.users.edit', compact('user'));
 	}
 
 	/**
@@ -73,9 +73,13 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
-		//
+		$user = User::findOrFail($id);
+		$user->fill($request->all());
+		$user->save();
+
+		return redirect()->back();
 	}
 
 	/**
