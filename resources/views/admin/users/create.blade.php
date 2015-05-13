@@ -7,13 +7,15 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Nuevo usuario</div>
 				<div class="panel-body">
-          {!! Form::open(['route' => 'admin.users.store', 'method' => 'POST']) !!}
-            
-              @include('admin.users.partials.fields')
-              
-              {!! Form::submit('Crear usuario', ['class' => 'btn btn-default']) !!}
+					@include('admin.partials.messages')
 
-          {!! Form::close()!!}
+          			{!! Form::open(['route' => 'admin.users.store', 'method' => 'POST']) !!}
+          			  
+          			    @include('admin.users.partials.fields')
+          			    
+          			    {!! Form::submit('Crear usuario', ['class' => 'btn btn-default']) !!}
+			
+          			{!! Form::close()!!}
 				</div>
 			</div>
 		</div>

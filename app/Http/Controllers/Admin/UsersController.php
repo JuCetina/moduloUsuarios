@@ -5,8 +5,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\User;
-
-
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\CreateUserRequest;
 
 class UsersController extends Controller {
 
@@ -37,8 +37,38 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
-	{
+	public function store(/**Request $request**/ CreateUserRequest $request)
+	{	/** PARA LAS DOS PRIMERAS OPCIONES USAR EL PARAMETRO COMENTADO **/
+		/** Usando Validator **/
+		//$data = $request->all();
+
+		//$rules = array(
+		//	'first_name' => 'required', 
+		//	'last_name' => 'required', 
+		//	'email' => 'required', 
+		//	'password' => 'required', 
+		//	'type' => 'required'
+		//);
+
+		//$v = Validator::make($data, $rules);
+		
+		//if($v->fails())
+		//{
+		//	return redirect()->back()
+		//	->withErrors($v->errors())
+		//	->withInput($request->except('password'));
+		//}
+
+		/** Usando validate() **/
+		//$rules = array(
+		//	'first_name' => 'required', 
+		//	'last_name' => 'required', 
+		//	'email' => 'required', 
+		//	'password' => 'required', 
+		//	'type' => 'required'
+		//);
+		//$this->validate($request, $rules);
+
 		$user = User::create($request->all());
 
 		return \Redirect::route('admin.users.index');
