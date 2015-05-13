@@ -1,8 +1,14 @@
 <?php namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Illuminate\Routing\Route;
 
-class CreateUserRequest extends Request {
+class EditUserRequest extends Request {
+
+	public function __construct(Route $route)
+	{
+		$this->route = $route;
+	}
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -24,8 +30,8 @@ class CreateUserRequest extends Request {
 		return [
 			'first_name' => 'required', 
 			'last_name' => 'required', 
-			'email' => 'required|unique:users,email', //Obligatorio, Unico y que revise en tabla users en el campo email
-			'password' => 'required', 
+			'email' => 'required|unique:users,email,'. $this->route->getparameter('users'), //Ultima parte obtiene el id del usuario para hacer una exclusion del email del mismo par que permita guardar el mismo email
+			'password' => '', 
 			'type' => 'required|in:user,admin' //Para que el usuario solo ingrese esos valores por el select del formulario y no otros valores
 		];
 	}

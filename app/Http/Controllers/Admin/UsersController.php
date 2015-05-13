@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\EditUserRequest;
 
 class UsersController extends Controller {
 
@@ -103,7 +104,7 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id, Request $request)
+	public function update($id, EditUserRequest $request)
 	{
 		$user = User::findOrFail($id);
 		$user->fill($request->all());
