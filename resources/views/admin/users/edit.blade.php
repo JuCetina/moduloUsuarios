@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-default">
-				<div class="panel-heading">Actualizar usuario: {{ $user->first_name }}</div>
+				<div class="panel-heading">Actualizar usuario: {{ $user->full_name }}</div>
 				<div class="panel-body">
 					@include('admin.partials.messages')
 					
