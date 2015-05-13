@@ -9,7 +9,7 @@
 				<div class="panel-body">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+							<strong>Ups!</strong> Hubo algunos errores:<br><br>
 							<ul>
 								@foreach ($errors->all() as $error)
 									<li>{{ $error }}</li>
@@ -22,14 +22,14 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
+							<label class="col-md-4 control-label">{{ trans('validation.attributes.email') }}</label>
 							<div class="col-md-6">
 								{!! Form::text('email', null, ['class' => 'form-control', 'type' => 'email']) !!}
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
+							<label class="col-md-4 control-label">{{ trans('validation.attributes.password') }}</label>
 							<div class="col-md-6">
 								{!! Form::password('password', ['class' => 'form-control']) !!}
 							</div>
@@ -39,7 +39,7 @@
 							<div class="col-md-6 col-md-offset-4">
 								<div class="checkbox">
 									<label>
-										{!! Form::checkbox('remember') !!} Remember Me
+										{!! Form::checkbox('remember') !!} {{ trans('validation.attributes.remember') }}
 									</label>
 								</div>
 							</div>
