@@ -16,9 +16,13 @@
           			    {!! Form::submit('Editar usuario', ['class' => 'btn btn-default']) !!}
 			
           			{!! Form::close()!!}
+
+          			
 				</div>
 			</div>
+			@include('admin.users.partials.delete')
 		</div>
 	</div>
 </div>
+
 @endsection

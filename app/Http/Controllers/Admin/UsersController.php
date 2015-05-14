@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\EditUserRequest;
+use Illuminate\SUpport\Facades\Session;
 
 class UsersController extends Controller {
 
@@ -121,7 +122,12 @@ class UsersController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		
+		$user = User::findOrFail($id);
+		$user->delete();
+		Session::flash('message', 'El usuario '.$user->full_name.' fue eliminado.');
+
+		return redirect()->route('admin.users.index');
 	}
 
 }
