@@ -17,9 +17,10 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */ 
-	public function index()
+	public function index(Request $request)
 	{
-		$users = User::paginate();
+		
+		$users = User::name($request->get('name'))->paginate();
 		return view('admin.users.index', compact('users'));
 
 	}
