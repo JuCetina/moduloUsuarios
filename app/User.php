@@ -57,4 +57,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 			$query->where(\DB::raw("CONCAT(first_name, ' ', last_name)"), "LIKE", "%$name%");
 		}
 	}
+
+	public function isAdmin()
+	{
+		return $this->type === 'admin';
+	}
 }
