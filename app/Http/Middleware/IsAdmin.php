@@ -30,7 +30,7 @@ class IsAdmin {
 			}
 			else
 			{
-				Session::flash('message', 'No tiene autorización para ingresar a este sitio.');
+				Session::flash('message', trans('passwords.unauthorized'));
 				return redirect()->to('auth/login');
 			}
 		}

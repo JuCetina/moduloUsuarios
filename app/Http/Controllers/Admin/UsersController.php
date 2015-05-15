@@ -130,7 +130,7 @@ class UsersController extends Controller {
 		
 		$user = User::findOrFail($id);
 		$user->delete();
-		Session::flash('message', 'El usuario '.$user->full_name.' fue eliminado.');
+		Session::flash('message', trans('passwords.deleted_user').$user->full_name);
 
 		return redirect()->route('admin.users.index');
 	}
